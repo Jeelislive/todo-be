@@ -2,14 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "app.js", // Your backend server file
+      "src": "app.js", 
       "use": "@vercel/node",
       "config": {
         "maxLambdaSize": "10mb" 
       }
     },
     {
-      "src": "build", // Assuming your React build output is in the 'build' directory
+      "src": "build",
       "use": "@vercel/static" 
     }
   ],
