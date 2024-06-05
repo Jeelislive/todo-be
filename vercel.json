@@ -1,14 +1,25 @@
 {
-    "version":2,
-    "build":[
-        {
-            "src":"app.js", "use":"@vercel/node"
-        }
-    ],
-    "routes":[
-        {
-            "src":"/(.*)",
-            "dest":"/"
-        }
-    ]
+  "version": 2,
+  "builds": [
+    {
+      "src": "app.js", // Your backend server file
+      "use": "@vercel/node",
+      "config": {
+        "maxLambdaSize": "10mb" 
+      }
+    },
+    {
+      "src": "build", // Assuming your React build output is in the 'build' directory
+      "use": "@vercel/static" 
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/",
+      "headers": {
+        "Cache-Control": "public, max-age=0, must-revalidate"
+      }
+    }
+  ]
 }
