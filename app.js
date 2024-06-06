@@ -6,7 +6,11 @@ const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const cookieParser = require('cookie-parser')
 const cors = require('cors')
+<<<<<<< HEAD
 const userController = require('./controllers/auth.controllers')
+=======
+const userController  = require('./controllers/auth.controllers')
+>>>>>>> e7dafa4411185a711ffe8b3fadcb319df4dedb9e
 const routes = require('./routes/auth.routes')
 
 const app = express();
@@ -28,6 +32,7 @@ app.get("/", (req, res) => {
 
 
 app.use(routes);
+
 
 const PORT = process.env.PORT || 3000;
 
