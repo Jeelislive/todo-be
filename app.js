@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken')
 const cookieParser = require('cookie-parser')
 const cors = require('cors')
 const userController  = require('./controllers/auth.controllers')
-const routes = require('./routes/auth.routes')
+// const routes = require('./routes/auth.routes')
 
 const app = express();
 app.use(express.json());
@@ -35,7 +35,13 @@ app.get("/", (req, res) => {
   res.send("<h1>App is working</h1>");
 });
 
-app.use(routes);
+app.post('/register', userController.register);
+
+app.post('/login', userController.login);
+
+app.get('/dashboard', userController.dashboard); 
+
+app.get('/logout', userController.logout);
 
 const PORT = process.env.PORT || 3000;
 
