@@ -15,12 +15,13 @@ app.use(cookieParser());
 
 
 app.use(cors({
-  origin: 'https://todo-fe-mu.vercel.app/register',
+  origin: 'https://todo-fe-mu.vercel.app',
   credentials: true
 }));
 
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://todo-fe-mu.vercel.app', 'https://todo-fe-mu.vercel.app/register');
+  res.setHeader('Access-Control-Allow-Origin', '*', 'https://todo-fe-mu.vercel.app');
+  res.setHeader('Access-Control-Allow-Origin', "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
 
