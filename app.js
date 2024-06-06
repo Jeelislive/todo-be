@@ -13,7 +13,7 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-  origin: 'https://todo-fe-mu.vercel.app/register',
+  origin: 'https://todo-fe-mu.vercel.app',
   credentials: true 
 }));
 
