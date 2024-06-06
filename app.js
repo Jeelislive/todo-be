@@ -6,8 +6,7 @@ const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const cookieParser = require('cookie-parser')
 const cors = require('cors')
-const authController = require('./controllers/auth.controllers')
-const router = express.Router();
+const userController  = require('./controllers/auth.controllers')
 const authMiddleware = require('./middlewares/middle')
 
 const app = express();
@@ -37,9 +36,13 @@ app.get("/", (req, res) => {
 });
 
 
-router.post("/login", authController.login);
-router.post("/register", authController.register);
-router.get("/dashboard", authMiddleware, authController.dashboard)
+app.post('/register', userController.register);
+
+app.post('/login', userController.login);
+
+app.get('/dashboard', authMiddleware, userController.dashboard); 
+
+app.get('/logout', userController.logout);
 
 
 const PORT = process.env.PORT || 3000;
