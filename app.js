@@ -32,7 +32,7 @@ app.get("/", (req, res) => {
   res.send("<h1>App is working</h1>");
 });
 
-app.post('/register', userController.register);
+app.post('https://todo-fe-mu.vercel.app/register', userController.register);
 
 app.post('/login', userController.login);
 
