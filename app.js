@@ -27,8 +27,7 @@ app.get("/", (req, res) => {
 });
 
 
-app.use('routes');
-
+app.use(routes); 
 
 const PORT = process.env.PORT || 3000;
 
