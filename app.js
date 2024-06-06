@@ -13,14 +13,16 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 
+
+app.use(cors({
+  origin: 'https://todo-fe-mu.vercel.app/register',
+  credentials: true
+}));
+
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', 'https://todo-fe-mu.vercel.app', 'https://todo-fe-mu.vercel.app/register');
   next();
 });
-app.use(cors({
-  origin: 'https://todo-fe-mu.vercel.app/',
-  credentials: true
-}));
 
 connectDB();
 
