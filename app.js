@@ -35,7 +35,13 @@ app.get("/", (req, res) => {
   res.send("<h1>App is working</h1>");
 });
 
-app.use(routes)
+app.post('/register', routes);
+
+app.post('/login', routes);
+
+app.get('/dashboard', routes); 
+
+app.get('/logout', routes);
 
 
 const PORT = process.env.PORT || 3000;
