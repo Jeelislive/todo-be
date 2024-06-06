@@ -6,8 +6,9 @@ const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const cookieParser = require('cookie-parser')
 const cors = require('cors')
-const userController  = require('./controllers/auth.controllers')
-const routes = require('./routes/auth.routes')
+const authController = require('./controllers/auth.controllers')
+const router = express.Router();
+const authMiddleware = require('./middlewares/middle')
 
 const app = express();
 app.use(express.json());
@@ -35,13 +36,10 @@ app.get("/", (req, res) => {
   res.send("<h1>App is working</h1>");
 });
 
-app.post('/register', routes);
 
-app.post('/login', routes);
-
-app.get('/dashboard', routes); 
-
-app.get('/logout', routes);
+router.post("/login", authController.login);
+router.post("/register", authController.register);
+router.get("/dashboard", authMiddleware, authController.dashboard)
 
 
 const PORT = process.env.PORT || 3000;
