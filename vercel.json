@@ -2,9 +2,6 @@
   "version": 2,
   "build": {
   
-    "config": {
-      "installCommand": "npm install" 
-    }
   },
    "rewrites": [
     {
