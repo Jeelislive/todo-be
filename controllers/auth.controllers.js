@@ -1,12 +1,13 @@
 const User = require("../models/user")
 const jwt = require("jsonwebtoken");
-const bcrypt = require('bcryptjs')
+const bcrypt = require('bcryptjs');
+const { response } = require("express");
 
 const register =  async (req, res) => {
     try {
         //get all data from body
         const { firstname, lastname, email, password } = req.body
-
+        //console.log(firstname);
         //all the data should exist
         if (!(firstname && lastname && email && password)) {
             res.send(400).send("all feilds are complosory")
@@ -17,6 +18,7 @@ const register =  async (req, res) => {
         if (existingUser) {
             res.status(401).send("user is already exist")
         }
+        //  console.log("jeel", existingUser);
         //encrypt the password
         const hashpassword = await bcrypt.hash(password, 10)
 
@@ -36,7 +38,7 @@ const register =  async (req, res) => {
                 expiresIn: "1h"
             }
         );
-
+        // console.log(token);
         user.token = token
         user.password = undefined
 

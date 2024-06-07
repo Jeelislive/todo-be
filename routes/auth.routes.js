@@ -9,4 +9,5 @@ router.post("/login", authController.login);
 router.post("/register", authController.register);
 router.get("/dashboard", authMiddleware, authController.dashboard)
 
+
 module.exports = router;
