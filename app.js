@@ -21,9 +21,10 @@ app.use(cors({
 
 connectDB();
 
-app.post("/login", userController.login);
+app.post("/api/login", userController.login);
 app.post("/api/register", userController.register);
-app.get("/dashboard", middleware, userController.dashboard)
+app.get("/api/logout", userController.logout)
+app.get("/api/dashboard", middleware, userController.dashboard)
 
 
 const PORT = process.env.PORT || 3000;
