@@ -24,6 +24,7 @@ connectDB();
 app.post("/api/login", userController.login);
 app.post("/api/register", userController.register);
 app.get("/api/logout", userController.logout)
+app.get("/dashboard", middleware, userController.dashboard)
 app.get("/api/dashboard", middleware, userController.dashboard)
 
 
