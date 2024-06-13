@@ -25,7 +25,7 @@ app.post("/api/login", userController.login);
 app.post("/api/register", userController.register);
 app.get("/api/logout", userController.logout)
 app.get("/dashboard", middleware.authMiddleware, userController.dashboard)
-//app.get("/api/dashboard", middleware, userController.dashboard)
+app.get("/api/dashboard", middleware.authMiddleware, userController.dashboard)
 
 
 const PORT = process.env.PORT || 3000;
