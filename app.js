@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken')
 const cookieParser = require('cookie-parser')
 const cors = require('cors')
 const userController = require('./controllers/auth.controllers')
-const middleware = require('./middlewares/middle')
+const middleware = require('./middlewares/middle.js')
 
 const app = express();
 app.use(express.json());
